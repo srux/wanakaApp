@@ -1,0 +1,697 @@
+// import
+
+
+
+// colorSwatches
+$color-1: rgb(226, 67, 1);
+$color-2: rgb(220, 220, 220);
+$color-3: rgb(189, 189, 189);
+$color-4: rgb(46, 46, 46);
+$color-5: rgba(12,12,12, 1);
+$color-6: rgb(36, 36, 36);
+$color-7: rgb(143, 48, 19);
+
+@import "_datepick.scss";
+@import "_cardform.scss";
+@import "_buttons.scss";
+
+
+// resetModule
+* {
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    text-indent: 0;
+    list-style: none;
+}
+
+
+body {
+   font-family: 'Heebo', sans-serif;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: 'Heebo', sans-serif;
+}
+
+
+
+// layoutModule
+
+    //  form stage size
+    .transportForm {
+        position:absolute;
+        height:600vh;
+        transition:all ease 1s;
+        background-color:$color-5;
+        // display:flex;
+        // flex:1 0 90%;
+        // flex-direction:column;
+    }
+
+.app {
+    min-height:100vh;
+    position: relative;
+    overflow:hidden;
+    background-color:$color-5;
+    .layer {
+        position: absolute;
+        width: 100%;
+        height:100%;
+        flex-direction: column;
+        overflow: hidden;
+        header {
+            height: 12%;
+        }
+        main{
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+            .planYourTrip {
+                display: flex;
+                flex-direction: column;
+                flex: 1 0 60%;
+                justify-content: space-between;
+                background-image:url("../assets/mainBg.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                .mainHeading {
+                    background-color:$color-7;
+                    display: flex;
+                    flex: 0 0 10%;
+                    justify-content: center;
+                    align-items: center;
+                    flex: 0 0 10%;
+                    padding: .7em;
+                    box-shadow: 0em 0em 3em 0em #000000;
+                    h2 {
+                        font-size: 7vw;
+                        text-align: center;
+                        line-height:1.2
+                        }
+                    }
+                .startTrip {
+                background-color: #333;
+                text-align:center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex:0 0 10%;
+                box-shadow: 0em 0em 3em 0em #000000;
+                    h1 {
+                        font-size: 8vw;
+                        color: #dcdcdc;
+                    }
+                }
+            }
+        }
+        footer{
+            height: 0em;
+            border:0 rgb(0, 0, 0) solid;
+            background-color:#333;
+        }
+    }
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;
+    .page {
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        text-align: center;
+        color:$color-2;
+        h2{
+            color:$color-7;
+        }
+        p{
+            font-size:.85em;
+            padding:.3em 1em;
+        
+        }
+    }
+    .steps {
+        display: flex;
+        align-self: flex-end;
+        align-items: center;
+        width: 100%;
+        flex-direction: row;
+        flex: 0 0 11%;
+        font-size: 2.5em;
+        div {
+            height: 2em;
+            display: flex;
+            width: 2em;
+            align-items: center;
+            background-color: #cdcdcd;
+            justify-content: center;
+            border-radius: .3em;
+        }
+    }
+    h1 {
+        text-align: center;
+        color: $color-2;
+        font-weight: 300;
+        line-height: 1.2;
+        font-size: 6vw;
+        padding: 0em .5em;
+    }
+}
+
+#map{
+    display: flex;
+    flex: 1 0 40%;
+}
+
+.clearBtn {
+    width: 100%;
+    flex:0 0 8%;
+    display: flex;
+    background-color: $color-2;
+    z-index: 1000;
+    justify-content: center;
+    border: 0;
+    font-weight: 700;
+    font-size: 1.2em;
+    align-items: center;
+    box-shadow: 0em 0em 1.5em #0000004a;
+}
+
+
+// progressModule
+
+.progress {
+    width: 100%;
+    height: 3em;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 99999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-end;
+    flex: 0 0 8%;
+
+    .progBar {
+        background-color: $color-5;
+        width: 30%;
+        height: 3.5em;
+        border-radius:.2em;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        text-align:center;
+        line-height:1.2;
+        color:$color-2;
+        font-size:11px;
+        transition:1s ease all;
+        border:thin solid $color-6;
+    }
+
+    .activeBar {
+        background-color: $color-7;
+        color:$color-2;
+        font-size:11px;
+        box-shadow: inset 0em 0em 3em 0px #0000008c;
+        z-index: 11;
+    }
+
+    .faded {
+        opacity:.5;
+        background-color:$color-4;
+    }
+}
+
+// animationModule
+
+.layer {
+    transition:all ease 1s;
+}
+
+.layerMain {
+    background-color:$color-5;
+    display: flex;
+    clip-path: polygon(100% 100%, 100% 0, 100% 100%, 0 100%);
+    opacity:0;
+    transform-origin: top left;
+    border-radius:0em 0em 100em 0em;
+}
+
+.layer1 {
+    clip-path: polygon(100% 100%, 100% 0, 100% 100%, 0 100%);
+    opacity:0;
+    transform-origin: top left;
+    border-radius:0em 0em 100em 0em;
+}
+
+.layer2 {
+    clip-path: polygon(100% 100%, 100% 0, 100% 100%, 0 100%);
+    opacity:0;
+    transform-origin: top left;
+    border-radius:0em 0em 100em 0em;
+}
+
+
+.layer3 {
+    clip-path: polygon(100% 100%, 100% 0, 100% 100%, 0 100%);
+    opacity:0;
+    transform-origin: top left;
+    border-radius:0em 0em 100em 0em;
+}
+
+.layer4 {
+    clip-path: polygon(100% 100%, 100% 0, 100% 100%, 0 100%);
+    opacity:0;
+    transform-origin: top left;
+    border-radius:0em 0em 100em 0em;
+}
+
+
+
+.fold {
+    opacity:0;
+    transform-origin: top left;
+    border-radius:0em 0em 100em 0em;
+    transition:1s ease all;
+    pointer-events:none;
+}
+
+.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity:1;
+    transform-origin: top left;
+    border-radius:0em 0em 0em 0em;
+    transition:1s ease all;
+    display: flex;
+    opacity:1 !important;
+}
+
+.move-left {
+    transform:translateX(-100%);
+}
+
+.move-right {
+    transform:translateX(100%);
+}
+
+.current {
+    transform:translate(0,0);
+}
+
+
+.tripStage1 {
+    transform:translate(0,-100vh);
+    transition:1s ease all;
+    overflow: hidden;
+}
+
+.tripStage2 {
+    transform:translate(0,-200vh);
+    transition:1s ease all;
+    overflow: hidden;
+}
+
+.tripStage3 {
+    transform:translate(0,-300vh);
+    transition:1s ease all;
+    overflow: hidden;
+}
+
+.tripStage4 {
+    transform:translate(0,-400vh);
+    transition:1s ease all;
+    overflow: hidden;
+}
+
+.tripStage5 {
+    transform:translate(0,-500vh);
+    transition:1s ease all;
+    overflow: hidden;
+}
+
+.moveTo5 {
+    position: absolute;
+    transform: translate(0, 200vh);
+    transition: ease all 0s;
+}
+
+.moveTo5 .option-input ~ .option {
+    display: none;
+}
+.moveTo5 .option-input:checked ~ .option {
+    display: initial;
+    font-size: .9em;
+    height: 13em;
+}
+
+.currentStage {
+    transform:translate(0,0);
+    height:100%;
+    opacity:1;
+    position:relative;
+}
+
+
+
+
+// headerModule
+
+.header {
+    display:flex;
+    align-items:center;
+    background-color:$color-5;
+    flex: 0 0 12%;
+    justify-content: flex-end;
+    z-index: 9;
+    img {
+        width: 70vw;
+        padding-right: 10vw;
+    }
+    .left {
+        font-size:1.5em;
+    }
+    .middle {
+        flex:1 0 auto;
+        text-align:center;
+        color:black;
+    }
+    .right {
+        font-size:1.5em;
+    }
+}
+
+
+
+.layer1 .header {
+    justify-content: flex-end;
+    display:flex;
+    align-items:center;
+    background-color:$color-5;
+    flex: 0 0 12%;
+    z-index: 5;
+    width: 100%;
+    position:absolute;
+    height: 12%;
+    img {
+            width: 70vw;
+            padding-right: 10vw;
+        }
+}
+
+
+
+//colorModule
+
+
+
+.layerMain {
+    background-color:$color-5;
+    display: flex;
+}
+
+.layer {
+    background-color:$color-5;
+}
+
+.layerMain .middle {
+    color:$color-2 ;
+}
+
+// navModule
+
+.headerNav {
+    transition:1.7s ease all;
+    height: 12%;
+    position: absolute;
+    z-index: 11;
+    width: 6em;
+    // border-radius: 0 0 100% 0%;
+    color:$color-2;
+    transition:ease 1s all;
+    clip-path: polygon(0 0, 100% 0, 50% 50%, 0% 100%);
+    display: flex;
+    justify-content: center;
+    img {
+        padding: .5em;
+    }
+    .appNav {
+        transition:.5s ease all;
+        height:0;
+        opacity: 0;
+        text-align: center;
+        justify-content: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        line-height: 3;
+        font-size: 1.3em;
+        flex-direction: column;
+        a {
+            color:$color-2;
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    img {
+        opacity:0;
+        transition:.5s ease all;
+    }
+    .menuButton {
+        z-index: 99;
+        transform: rotate(45deg);
+        top: -.2em;
+        right: .6em;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 2em;
+        height: 2em;
+        font-size: 2.5em;
+        transition:1s ease all;
+    }
+}
+
+.navOpen {
+    pointer-events: initial;
+    height: 100%;
+    position: absolute;
+    z-index: 11;
+    width: 100%;
+    background-color:$color-5;
+    // border-radius: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+    .appNav {
+        opacity:1;
+        height: 75%;
+        transition:1.5s ease all;
+    }
+    img {
+        opacity:1;
+    }
+    i {
+        color: $color-1;
+        transition: ease all 1.7s;
+    }
+    .menuButton {
+        transform: rotate(0deg);
+        top: 83%;
+        right: 0;
+        transition:1.5s ease all;
+}
+}
+
+.nav{
+    list-style-type:none;
+    padding:0;
+    li{
+        a{
+            display:block;
+            padding:.5em;
+            text-decoration: none;
+            color:rgb(250, 250, 159);
+        }
+    }
+}
+
+// formModule
+
+.formGrp {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 50%;
+    justify-content: center;
+    .formOption {
+        display:flex;
+        flex-direction:column;
+
+        p {
+            color:$color-2;
+            text-align: center;
+        }
+
+        label {
+            font-weight: 300;
+            text-align: center;
+            font-size: 1.4em;
+            color:$color-4;
+            
+        }
+        input {
+            height: 3em;
+            border: 0;
+            background-color: $color-6;
+            border-bottom: $color-7 .2em solid;
+            font-weight: 300;
+            text-align: center;
+            font-size: 1.4em;
+            color:$color-2;
+            margin-bottom:.5em;
+        }
+        input:placeholder {
+            font-weight: 400;
+            color:$color-2;
+            font-size: 1.4em;
+        }
+        select {
+            height: 2em;
+            border: 0;
+            background-color: $color-6;
+            font-weight: 300;
+            text-align-last: right;
+            direction: rtl;
+            text-align-last: center;
+            padding-right: 0em;
+            font-size: 1.5em;
+            text-transform: capitalize;
+            color:$color-2;
+            border-bottom: .2em solid $color-4;
+        }
+    }
+}
+
+// paymentModule
+
+.BookingInfo {
+    text-shadow:0.5em 0.5em 0.5em #0000005c;
+    font-weight: 500;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 10%;
+    justify-content: flex-end;
+    color:$color-2;
+    h1 {
+        text-align: left;
+        padding-left:.7em;
+    }
+}
+.sumStyle {
+    padding: 0em 1em;
+    background-color: $color-6;
+    border-bottom: $color-7 .1em solid;
+}
+.totalStyle {
+    font-size: 2em;
+    background-color: $color-6;
+    border-bottom: $color-7 .2em solid;
+    padding: 0em .5em;
+}
+
+#totalPayment {
+    pointer-events: none;
+    visibility: hidden;
+    opacity:0;
+    height:0;
+}
+
+
+
+// miscModule
+
+// .trip2 {
+//     z-index: 9999;
+// }
+
+
+    .form2 {
+        .option-group {
+            height: 7em;
+            font-size: .5em;
+            margin-top: 0.2em;
+        }
+    }
+
+    .form4 {
+        display:block;
+    }
+    .radioButtonShow {
+        label {
+            height: 35vh;
+        }
+    }
+    .form5 {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 10%;
+        .cols {
+            display: flex;
+            justify-content: space-between;
+            width:100%;
+            // box-sizing: border-box;
+
+            .col {
+                display: flex;
+                flex-direction: column;
+                flex: 0 0 48%;
+                input {
+                    width: 100%;
+                    margin-top:.5em;
+                    height: 2em;
+                    border: 0;
+                    background-color: $color-6;
+                    border-bottom: $color-7 .2em solid;
+                    font-weight: 300;
+                    text-align: left;
+                    font-size: 1em;
+                    padding-left: 0.5em;
+                    color:$color-2;
+                }
+            }
+        }
+    }
+
+    .travelInfo {
+        position: absolute;
+        z-index: 999;
+        font-size: 1.2em;
+        bottom: 0;
+        padding: 1em;
+        color: $color-7;
+        font-weight: 500;
+    }
+
+    div#fuelEconomy {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        div {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    .SegmentLength {
+        display:none;
+    }
+

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Wanaka Trip Planner</title>
+</head>
+
+<body>
+
+    <div class="app">
+            <nav class="headerNav">
+                    <div class="menuButton"><i class="fas fa-ellipsis-v"></i></div>
+                    <div class="middle"><img src="assets/wanaka-logo.png" alt="">
+                        <ul class="appNav">
+                            <li><a href="#" data-navHome=".layerHome">HOME</a></li>
+                            <li><a href="#" data-nav1=".layer1">PLAN YOUR TRIP</a></li>
+                            <li><a href="#" data-nav2=".layer2">THINGS TO DO IN WANAKA</a></li>
+                            <li><a href="#" data-nav3=".layer3">ACCOMMODATION</a></li>
+                            <li><a href="#" data-nav4=".layer4">CONTACT US</a></li>
+                        </ul>
+                    </div>
+                </nav>
+        <div class="layer layerMain active">
+            <header class="header">
+                <div><img src="assets/wanaka-logo.png" alt=""></div>
+            </header>
+            <main class="layerHome">
+                <div class="planYourTrip">
+                    <div class="mainHeading">
+                        <h2>Make the most of your time in Wanaka & plan ahead
+                            </h2>
+                    </div>
+                    <div class="startTrip" data-target=".layer1">
+                        <h1>START YOUR JOURNEY
+                        </h1>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="layer layer1">
+            <header class="header">
+                <div><img src="assets/wanaka-logo.png" alt=""></div>
+            </header>
+                <div  class="transportForm" id="tripPlanner">
+                    <div class="section trip1">
+                        <div class="steps">
+                        </div>
+                        <div class="formGrp form1">
+                            <h1>Please fill in the form below & we will work out your best mode of transport.</h1>
+                            <div class="formOption fo2">
+                                <input type="text" class="form-control form-control-sm" id="datepicker" placeholder="Select your travel days" />
+                            </div>
+                            <div class="formOption form2 formPeeps formboxHidden">
+                                <p>How many people are going?</p>
+
+                                <div class="option-group">
+                                    <div class="option-container">
+                                        <input class="option-input numberPeople" type="radio" id="numPeople1" name="numberPeople" value="1">
+                                        <input class="option-input numberPeople" type="radio" id="numPeople2" name="numberPeople" value="2">
+
+                                        <label class="option numberPeople" for="numPeople1" id="labelPeople1">
+                                            <span class="option__indicator"><img src="assets/1p.png" alt=""></span>
+                                            <span class="option__label">
+											1 Person<sub></sub>
+									</span>
+                                        </label>
+
+                                        <label class="option numberPeople" for="numPeople2" id="labelPeople2">
+                                            <span class="option__indicator"><img src="assets/2p.png" alt=""></span>
+                                            <span class="option__label">
+											2 People<sub></sub>
+									</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <div class="option-container">
+                                        <input class="option-input numberPeople" type="radio" id="numPeople3" name="numberPeople" value="3">
+                                        <input class="option-input numberPeople" type="radio" id="numPeople4" name="numberPeople" value="4">
+
+                                        <label class="option numberPeople" for="numPeople3" id="labelPeople3">
+                                            <span class="option__indicator"><img src="assets/3p.png" alt=""></span>
+                                            <span class="option__label">
+												3 People<sub></sub>
+										</span>
+                                        </label>
+
+                                        <label class="option numberPeople" for="numPeople4" id="labelPeople4">
+                                            <span class="option__indicator"><img src="assets/4p.png" alt=""></span>
+                                            <span class="option__label">
+												4 People<sub></sub>
+										</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <div class="option-container">
+                                        <input class="option-input numberPeople" type="radio" id="numPeople5" name="numberPeople" value="5">
+                                        <input class="option-input numberPeople" type="radio" id="numPeople6" name="numberPeople" value="6">
+
+                                        <label class="option numberPeople" for="numPeople5" id="labelPeople5">
+                                            <span class="option__indicator"><img src="assets/5p.png" alt=""></span>
+                                            <span class="option__label">
+											5 People<sub></sub>
+									</span>
+                                        </label>
+
+                                        <label class="option numberPeople" for="numPeople6" id="labelPeople6">
+                                            <span class="option__indicator"><img src="assets/6p.png" alt=""></span>
+                                            <span class="option__label">
+											6 People<sub></sub>
+									</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <span id="numDaysMessage"></span>
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progBar bar1 activeBar" data-clearstage1=".transportForm">TRIP
+                                <br>DETAILS</div>
+                            <div class="progBar faded bar2" data-clearstage2=".transportForm">TRANSPORT</div>
+                            <div class="progBar faded bar3" data-clearstage3=".transportForm">RENTALS</div>
+                            <div class="progBar faded bar4" data-clearstage4=".transportForm">ITINERARY</div>
+                        </div>
+                        <div class="nextButton b1 nextButtonHidden"><a href="#" data-targetstage1=".transportForm" data-clearstage=".transportForm">NEXT - VEHICLE OPTIONS</a></div>
+                    </div>
+                    <div class="section trip2">
+                        <div class="steps">
+                        </div>
+                        <div class="formGrp form3">
+                            <h1>The best modes of travel for you are listed below. Please select your preffered vehicle. </h1>
+                            <div class="option-group">
+                                <div class="option-container">
+                                    <input class="option-input vehicle" type="radio" id="Input-motorbike" name="vehicle" value="109">
+                                    <input class="option-input vehicle" type="radio" id="Input-smallCar" name="vehicle" value="129">
+                                    <label class="option vehicle motorbike" for="Input-motorbike" id="motorbike" data-targetVehicle1=".motorbikeClassGrp" data-targetNext=".b2">
+                                        <span class="option__indicator"><img src="assets/scooter.png" alt=""></span>
+                                        <span class="option__label">
+														Motor Bike: $109.00<sub>1 person, 1-5 days, 3.7l/100km</sub>
+												</span>
+                                    </label>
+                                    <label class="option vehicle smallCar" for="Input-smallCar" id="smallCar" data-targetVehicle2=".economyClassGrp" data-targetNext=".b2">
+                                        <span class="option__indicator"><img src="assets/smallcar.png" alt=""></span>
+                                        <span class="option__label">
+															Small Car: $129.00<sub>1-2 people, 1-10 days, 8.5l/100km</sub>
+													</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="option-group">
+                                <div class="option-container">
+                                    <input class="option-input vehicle" type="radio" id="Input-largeCar" name="vehicle" value="144">
+                                    <input class="option-input vehicle" type="radio" id="Input-motorHome" name="vehicle" value="200">
+                                    <label class="option vehicle" for="Input-largeCar" id="largeCar" data-targetVehicle3=".mediumClassGrp" data-targetNext=".b2">
+                                        <span class="option__indicator"><img src="assets/largecar.png" alt=""></span>
+                                        <span class="option__label">
+														Large Car: $144.00<sub>1-5 people, 3-10 days, 9.7l/100km</sub>
+												</span>
+                                    </label>
+
+                                    <label class="option vehicle" for="Input-motorHome" id="motorHome" data-targetVehicle4=".motorHomeGrp" data-targetNext=".b2">
+                                        <span class="option__indicator"><img src="assets/motorhome.png" alt=""></span>
+                                        <span class="option__label">
+												Motor Home: $200.00<sub>2-6 people, 2-15 days, 17l/100k</sub>
+												</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <span id="VehicleValidation"></span>
+                        </div>
+                        <div class="progress">
+                            <div class="progBar bar1" data-clearstage1=".transportForm">TRIP
+                                <br>DETAILS</div>
+                            <div class="progBar bar2 activeBar" data-clearstage2=".transportForm">TRANSPORT</div>
+                            <div class="progBar faded bar3" data-clearstage3=".transportForm">RENTALS</div>
+                            <div class="progBar faded bar4" data-clearstage4=".transportForm">ITINERARY</div>
+                        </div>
+                        <div class="nextButton b2 nextButtonHidden2"><a href="#" data-targetstage2=".transportForm" data-clearstage=".transportForm">NEXT - MODEL OPTIONS</a></div>
+                    </div>
+                    <div class="section trip3">
+                        <div class="steps">
+                        </div>
+                        <h1>Please select your preferred model of vehicle below.</h1>
+                        <div class="formGrp form4">
+
+                            <div class="option-group motorbikeClassGrp">
+                                <div class="option-container">
+                                    <input class="option-input" type="radio" id="Input-motorbikeClass" name="vehicleClass" value=".037">
+                                    <input class="option-input" type="radio" id="Input-motorbikeClass1" name="vehicleClass" value=".037">
+
+                                    <label class="option motorbikeClass" for="Input-motorbikeClass" id="motorbikeClass">
+                                        <span class="option__indicator"><img src="assets/scooter-class.png" alt=""></span>
+                                        <span class="option__label">
+                                                                500 Watt<sub></sub>
+                                                                
+                                                                    <br>SPRINT
+                                                                    <br>Electric
+                                                                    <br>1 Person
+                                                                
+														</span>
+                                    </label>
+                                    <label class="option motorbikeClass1" for="Input-motorbikeClass1" id="motorbikeClass1">
+                                        <span class="option__indicator"><img src="assets/scooter-class1.png" alt=""></span>
+                                        <span class="option__label">
+                                                                    Yamaha TMAX<sub></sub>
+                                                                    
+                                                                        <br>2012 to 2014
+                                                                        <br>4-stroke
+                                                                        <br>V-Belt Auto
+                                                                        
+                                                                    
+															</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="option-group economyClassGrp">
+                                <div class="option-container">
+                                    <input class="option-input" type="radio" id="Input-economyClass" name="vehicleClass" value=".085">
+                                    <input class="option-input" type="radio" id="Input-economyClass1" name="vehicleClass" value=".085">
+
+                                    <label class="option economyClass" for="Input-economyClass" id="economyClass">
+                                        <span class="option__indicator"><img src="assets/economy-class.png" alt=""></span>
+                                        <span class="option__label">
+                                                        Toyota Vitz<sub></sub>
+                                                            <br>2006 to 2012
+                                                            <br>1.3l to 1.5l
+                                                            <br>Auto
+												</span>
+                                    </label>
+                                    <label class="option economyClass1" for="Input-economyClass1" id="economyClass1">
+                                        <span class="option__indicator"><img src="assets/economy-class1.png" alt=""></span>
+                                        <span class="option__label">
+                                                            Mazda Demio<sub></sub>
+                                                            <br>2008 to 2014
+                                                            <br>1.2l to 1.4l
+                                                            <br>Auto
+													</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="option-group mediumClassGrp">
+                                <div class="option-container">
+                                    <input class="option-input" type="radio" id="Input-mediumClass" name="vehicleClass" value=".097">
+                                    <input class="option-input" type="radio" id="Input-mediumClass1" name="vehicleClass" value=".097">
+
+                                    <label class="option mediumClass" for="Input-mediumClass" id="mediumClass">
+                                        <span class="option__indicator"><img src="assets/medium-class.png" alt=""></span>
+                                        <span class="option__label">
+															Subaru Outback<sub></sub>
+																<br>2008 to 2014
+																<br>1.2l to 1.4l
+																<br>Auto
+													</span>
+                                    </label>
+                                    <label class="option mediumClass1" for="Input-mediumClass1" id="mediumClass1">
+                                        <span class="option__indicator"><img src="assets/medium-class1.png" alt=""></span>
+                                        <span class="option__label">
+																Toyota Previa<sub></sub>
+																
+																	<br>2009 to 2013
+																	<br>1.4l
+																	<br>Auto
+
+														</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="option-group motorHomeGrp">
+                                <div class="option-container">
+                                    <input class="option-input" type="radio" id="Input-motorhomeClass" name="vehicleClass" value=".17">
+                                    <input class="option-input" type="radio" id="Input-motorhomeClass1" name="vehicleClass" value=".17">
+
+                                    <label class="option motorhomeClass" for="Input-motorhomeClass" id="motorhomeClass">
+                                        <span class="option__indicator"><img src="assets/motorhome-class.png" alt=""></span>
+                                        <span class="option__label">
+                                                                Maui Ultima<sub></sub>
+																	<br>Sleeps 2 adults
+                                                                    <br>Shower & Toilet
+                                                                    <br>Auto
+														</span>
+                                    </label>
+                                    <label class="option motorhomeClass1" for="Input-motorhomeClass1" id="motorhomeClass1">
+                                        <span class="option__indicator"><img src="assets/motorhome-class1.png" alt=""></span>
+                                        <span class="option__label">
+                                                                    Maui Motorhome<sub></sub>
+                                                                    <br>Sleeps 6 adults
+                                                                    <br>Shower & Toilet
+                                                                    <br>Auto
+															</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progBar bar1" data-clearstage1=".transportForm">TRIP
+                                <br>DETAILS</div>
+                            <div class="progBar bar2" data-clearstage2=".transportForm">TRANSPORT</div>
+                            <div class="progBar bar3 activeBar" data-clearstage3=".transportForm">RENTALS</div>
+                            <div class="progBar faded bar4" data-clearstage4=".transportForm">ITINERARY</div>
+                        </div>
+                        <div class="nextButton b3 nextButtonHidden3"><a href="#" data-bookingvehicle=".form4" data-targetstage3=".transportForm" data-clearstage=".transportForm">NEXT - ITINERARY</a></div>
+                    </div>
+                    <div class="section trip4">
+                        <div class="steps">
+                        </div>
+                        <div id="map">
+                        </div>
+
+                        <div class="clearBtn">CLEAR MAP</div>
+                        
+                        <div class="progress">
+                            <div class="progBar bar1" data-clearstage1=".transportForm">TRIP
+                                <br>DETAILS</div>
+                            <div class="progBar bar2" data-clearstage2=".transportForm">TRANSPORT</div>
+                            <div class="progBar bar3" data-clearstage3=".transportForm">RENTALS</div>
+                            <div class="progBar bar4 activeBar" data-clearstage4=".transportForm">ITINERARY</div>
+                        </div>
+                        <div class="nextButton b4"><a href="#" data-targetstage4=".transportForm" data-clearstage=".transportForm">NEXT - REVIEW & BOOK</a></div>
+                    </div>
+                    <div class="section trip5">
+                        <div class="steps">
+                        </div>
+                        <div class="prevButton" data-clearstage4=".transportForm">BACK - ITINERARY</div>
+
+                        <div class="BookingInfo">
+                            <!-- <h1>Trip Summary</h1> -->
+                            <div class="sumStyle" id="fuelEconomy">
+                                <div><span id="distance"></span>
+                                    <p>&nbsp;km&nbsp;at&nbsp;</p>
+                                </div>
+                                <div><span id="fuelCons"></span>
+                                    <p>&nbsp;Litres of fuel</p>
+                                </div>
+                            </div>
+                            <p class="sumStyle" id="daysTravel">&nbsp;</p>
+                            <p class="sumStyle"><span id="daysTravelling">0</span> Days at $<span id="dayCost">0</span> per day</p>
+                            <p class="totalStyle">Total $<span id="totalCost">0</span></p>
+                        </div>
+
+                        <div class="nextButton b5"><a href="#" data-targetstage5=".transportForm" data-clearstage=".transportForm">PAYMENT</a></div>
+                    </div>
+                    <div class="section trip6">
+                        <div class="steps">
+                        </div>
+                        <div class="prevButton" data-clearstage5=".transportForm">BACK - TRIP SUMMARY</div>
+                        <h1>BILLING INFORMATION</h1>
+                        <div class="formGrp form5">
+                            <div class="cols">
+                                <div class="col">
+                                    <input type="text" id="fullname" name="fullname" value="" required placeholder="Full name">
+                                    <input type="email" id="email" name="email" value="" required placeholder="Email">
+                                    <input type="number" id="phone" name="phone" value="" required placeholder="Contact number">
+                                </div>
+                                <div class="col">
+                                    <input type="text" id="address" name="address" required value="" placeholder="Address">
+                                    <input type="text" id="city" name="city" required value="" placeholder="City">
+                                    <input type="text" id="country" name="country" value="" placeholder="Country">
+                                </div>
+                            </div>
+
+                            <!-- <label for="fullname" place></label> -->
+                            <input type="number" id="totalPayment" value="">
+                        </div>
+                        <form>
+                        <fieldset>
+                            <legend>Card Details</legend>
+
+                            <div class="card-js form-group">
+
+                                <!-- Card number -->
+                                <input class="card-number form-control" name="my-custom-form-field__card-number" placeholder="Enter your card number" autocomplete="off" required>
+
+                                <!-- Name on card -->
+                                <input class="name form-control" id="the-card-name-id" name="my-custom-form-field__card-name" placeholder="Enter the name on your card" autocomplete="off" required>
+
+                                <!-- Card expiry (element that is displayed) -->
+                                <input class="expiry form-control" autocomplete="off" required>
+
+                                <!-- Card expiry - Month (hidden) -->
+                                <input class="expiry-month" name="my-custom-form-field__card-expiry-month">
+
+                                <!-- Card expiry - Year (hidden) -->
+                                <input class="expiry-year" name="my-custom-form-field__card-expiry-year">
+
+                                <!-- Card CVC -->
+                                <input class="cvc form-control" name="my-custom-form-field__card-cvc" autocomplete="off" required>
+
+                            </div>
+                            <!-- END .card-js wrapper -->
+
+                        </fieldset>
+                        <div class="formSubmit">
+                            <button type="submit" class="pure-button pure-button-primary">PAY NOW</button>
+                        </div>
+                    </form>
+                    </div>
+                </div> 
+        </div>
+        <div class="layer layer2">
+            <div class="section">
+                <div class="page">   
+                    <div class="steps"></div>       
+                    <h2>There are so many reasons to love Wanaka</h2>
+                    <p>Explore nearby Mt Aspiring National Park, discover pristine rivers, waterfalls, native forests and mountains on one of the many tracks. Wanaka has over 750km of trails that are made for walking, hiking and mountain biking.</p>
+                    <p>For the adventure seekers' there’s canyoning, skydiving, via ferrata, off road tours and airborne adventures. Summer is perfect for jet-boating, kayaking, sailing and paddle-boarding and in winter the snow-covered mountains, draw skiers and snowboarders from around the globe to three world-class ski fields.</p>
+                    <p>While excellent restaurants, cafes, artisan produce, world-class vineyards, boutique breweries and an award-winning distillery will keep even the most discerning gourmet satisfied.</p>
+                </div>
+            </div>
+        </div>
+        <div class="layer layer3">
+            <div class="section">
+                <div class="page">
+                    <div class="steps"></div>   
+                    <h2>Wanaka Accommodation</h2>
+                    <p>Choosing accommodation in Wanaka for a night or a month is all about selecting somewhere that feels right to you and meets your budget.</p>
+                    <p>Ranging from luxury lodges, mountain chalets, resorts, high-end apartments, B&B's through to lakeside camp grounds the Wanaka region has plenty of options.</p>
+                    <p>Genuine Kiwi hospitality and incredible views will make your stay even more memorable.</p>
+                    <p>For a real Kiwi experience try staying in a holiday house ("bach" or "crib" to the locals) especially if you are staying for a while and looking for a home away from home.</p>
+                    <p>Contact us for further information.</p>
+                    <h3>Phone: +64 3 443 1233 | bookings@wanaka.co.nz </h3>
+                </div>
+            </div>
+        </div>
+        <div class="layer layer4">
+            <div class="section">
+                <div class="page">
+                    <div class="steps"></div>   
+                    <h1>Contact Us</h1>
+                    <h2>Lake Wanaka Visitor Centre</h2>
+                    <p>103 Ardmore Street, Wanaka 9305, New Zealand.</p>
+                    <p>For all enquiries regarding visitor information, bookings and travel:</p>
+                    <p>Phone: +64 3 443 1233 | bookings@wanaka.co.nz</p>
+                    <h2>Lake Wanaka Tourism</h2>
+                    <p>Level 3, 99 Ardmore St, Wanaka 9305, New Zealand.</p>
+                    <p>For all enquiries regarding this website or marketing:</p>
+                    <p>Phone: +64 3 443 1574 | info@wanaka.co.nz</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- cdn scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"></script>    <!-- leaflet map cdn for map implemenation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+
+    <!-- plugin scripts -->
+     <!-- date picker js script plugin -->
+    <script src="plugins/card-js.min.js"></script>    <!-- credit card form js plugin -->
+    <script src="plugins/lightpick.js"></script>    <!-- google map cdn for map distances etc -->
+    <script src="plugins/leaflet-measure-path.js"></script>  <!-- map distance js script plugin -->
+
+    
+    <!-- js scripts -->
+    <script src="js/script.js"></script>    <!-- main script for navigation and layout purposes -->
+    <script src="js/tripCalculator.js"></script>
+    <script src="js/map.js"></script>    <!-- map js for plotting trip script  -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDknEtmtQzCjjFGOAJiHVFKcBegAsUBUKc&callback=initMap" async defer></script>  
+    <!-- google cdn scripts -->
+    <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+	<script src="jquery.mask.js"></script> -->
+
+</body>
+
+</html>

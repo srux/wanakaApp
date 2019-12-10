@@ -1,0 +1,425 @@
+
+.option-group {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    overflow: visible;
+    border-radius: 0.25em;
+    font-size: 1em;
+    margin-top: 0.2em;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .motorbikeClassGrp {
+    opacity:0;
+    pointer-events: none;
+    height:0;
+    display: none;
+  }
+
+  .economyClassGrp {
+    opacity:0;
+    pointer-events: none;
+    height:0;
+    display: none;
+  }
+
+  .mediumClassGrp {
+    opacity:0;
+    pointer-events: none;
+    height:0;
+    display: none;
+  }
+
+  .motorHomeGrp {
+    opacity:0;
+    pointer-events: none;
+    height:0;
+    display: none;
+  }
+    
+  
+  .option-container {
+    display: flex; 
+    justify-content: center;
+    align-items: stretch;
+    width: 120%;
+    height: 100%;
+    margin: 0 -10%;
+  }
+  
+  .option {
+    overflow: hidden;
+    flex: 1;
+    display: block;
+    padding: 0.5em;
+    background: $color-3;
+    position: relative;
+    margin: 0em;
+    margin-right: 0.2em;
+    &:last-child { margin-right: 0; }
+    border-radius: 0.25em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    cursor: pointer;
+    opacity: 0.7;
+    transition-duration: 0.8s, 0.6s;
+    transition-property: transform, opacity;
+    transition-timing-function: cubic-bezier(.98,0,.22,.98), linear;
+    will-change: transform, opacity;
+  }
+  
+  .option__indicator {
+    display: block;
+    transform-origin: left bottom;
+    transition: inherit;
+    will-change: transform;
+    // position: absolute;
+    bottom: 1.5em;
+    right: 0.5em;
+    left: 0.5em;
+    
+    img {
+
+        width: 60%;
+        padding-left: 10%;
+        transition:.5s ease all;
+    }
+
+  }
+  
+  .option-input {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    visibility: hidden;
+  }
+  
+  .option__label {
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1;
+    transform-origin: left bottom;
+    transform: translateX(20%) scale(0.7);
+    transition: inherit;
+    will-change: transform;
+  
+     sub {
+      margin-left: 0;
+      font-size: 0.45em;
+      display: inline-block;
+      vertical-align: 0;
+      bottom: 0em;
+  }
+
+  ul {
+    li {
+      font-size: .6em;
+      color: black;
+      line-height: 1.2;
+    }
+  }
+
+    
+    &:after {
+      content: '';
+      display: block;
+      border: solid 2px ;
+      width: 100%;
+      transform-origin: 0 0;
+      transform: scaleX(0.2);
+      transition: inherit;
+      will-change: transform;
+    }
+  }
+  .option:last-child {
+    .option__label { transform: translateX(0%) scale(0.7); }
+    .option__indicator { transform: translateX(-20%); 
+        img {
+
+            width: 60%;
+            padding-left: 15%;
+        }
+    }
+  }
+  
+  .option-input:checked ~ .option {
+    transform: translateX(-16%) translateX(0.2em);
+    .option__indicator { transform: translateX(0%); 
+        img {
+
+            width: 60%;
+            padding-left: 30%;
+        }
+    }
+    .option__label { transform: translateX(40%) scale(0.7); }
+  }
+  
+  .option-input:first-child:checked ~ .option {
+    transform: translateX(16%) translateX(-0.2em);
+    .option__indicator { transform: translateX(-40%); 
+        img {
+
+            width: 60%;
+            padding-left: 40%;
+
+        }
+    }
+    .option__label { transform: translateX(0%) scale(0.7); }
+  }
+  
+  .option-input:nth-child(1):checked ~ .option:nth-of-type(1) {
+    opacity: 1;
+    color:$color-5;
+    box-shadow: 1em 0.4em 1.5em 0em #00000094;
+    z-index: 11;
+    background: #fff;
+    .option__indicator {color:$color-5; transform: translateX(0); &::after {color:$color-1; transform: scale(1); } 
+    img {
+        width: 70%;
+        padding-left: 0;
+    }
+}
+    .option__label,
+    .option__label::after { transform: scale(1); color:$color-1;}
+  }
+  .option-input:nth-child(2):checked ~ .option:nth-of-type(2) {
+    opacity: 1;
+    color:$color-5;
+    box-shadow: -1em 0.4em 1.5em 0em #00000094;
+    z-index: 11;
+    background: #fff;
+    .option__indicator {color:$color-5; transform: translateX(0); &::after {color:$color-1; transform: scale(1); } 
+    img {
+        width: 70%;
+        padding-left: 0;
+    }
+}
+    .option__label,
+    .option__label::after { transform: scale(1); 
+        color:$color-1;}
+  }
+
+  .nextButton {
+    flex: 0 0 10%;
+    text-align: center;
+    height: 100%;
+    justify-content: flex-end;
+    display: flex;
+    margin-top: .2em;
+    align-items: center;
+    background-color: $color-7;
+    flex-direction: row;
+    font-weight:500;
+    z-index: 99999;
+    transition:1.5s ease all;
+    font-size: 1em;
+    cursor:pointer;
+    border-radius:.1em;
+    a {
+        text-align: center;
+        color:$color-2;
+        display: flex;
+        flex: 1 0 99%;
+        height: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size:1em;
+    }
+}
+
+.prevButton {
+  flex: 0 0 10%;
+  text-align: center;
+  height: 100%;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: .2em;
+  align-items: center;
+  background-color: #8f3013;
+  flex-direction: row;
+  font-weight: 500;
+  transition: 1.5s ease all;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: .1em;
+  text-align: center;
+  color:$color-3;
+}
+
+.formSubmit {
+  flex:0 0 10%;
+  .pure-button-primary {
+    background-color:$color-7;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 1.4em;
+    justify-content: center;
+    text-align: center;
+  }
+}
+  // layout Hide & Remove
+
+.formPeeps {
+  height:100%;
+  transition:3s ease all;
+}
+
+.numberPeople {
+  img {
+    width: 25% !important;
+  }
+}
+
+.formboxHidden {
+    opacity:0;
+    height:0;
+    transition:1s ease all;
+    pointer-events: none;
+}
+
+.nextButtonHidden {
+    background-color:$color-3;
+    color:$color-2;
+    transition:1.5s ease all;
+    pointer-events:none;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    a {
+        justify-content: space-between;
+    }
+    a:before{
+        display: block;
+        white-space: pre-line;
+        content:'STEP ONE: TRAVEL DETAILS \A  COMPLETE FORM TO PROCEED';
+        color:$color-4;
+        opacity:1;
+        text-align: left;
+        padding:1em 2em;
+        font-size: .8em;
+        font-weight:700;
+        position: absolute;
+        background-color:$color-3;
+    }
+}
+.nextButtonHidden2 {
+  background-color:$color-3;
+  color:$color-2;
+  transition:1.5s ease all;
+  pointer-events:none;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  a {
+      justify-content: space-between;
+  }
+  a:before{
+      display: block;
+      white-space: pre-line;
+      content:'STEP TWO: CHOOSE YOUR PREFERRED\A  MODE OF TRANSPORT TO PROCEED';
+      color:$color-4;
+      opacity:1;
+      text-align: left;
+      padding:1em 2em;
+      font-size: .8em;
+      font-weight:700;
+      position: absolute;
+      background-color:$color-3;
+  }
+}
+.nextButtonHidden3 {
+  background-color:$color-3;
+  color:$color-2;
+  transition:1.5s ease all;
+  pointer-events:none;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  a {
+      justify-content: space-between;
+  }
+  a:before{
+      display: block;
+      white-space: pre-line;
+      content:'STEP THREE: CHOOSE YOUR PREFERRED\A  MODEL TO PROCEED';
+      color:$color-4;
+      opacity:1;
+      text-align: left;
+      padding:1em 2em;
+      font-size: .8em;
+      font-weight:700;
+      position: absolute;
+      background-color:$color-3;
+  }
+}
+
+
+
+.buttonHidden {
+    opacity:.3;
+    transition:.5s ease all;
+    pointer-events:none;
+}
+
+.buttonShow {
+    opacity:1;
+    transition:.5s ease all;
+    pointer-events:initial;
+    visibility: initial;
+}
+
+.radioButtonShow {
+  opacity:1;
+  transition:.5s ease all;
+  pointer-events:initial;
+  display:initial;
+}
+
+
+.buttonGone {
+    opacity:0;
+    transition:.5s ease all;
+    pointer-events:none;
+}
+
+.leaflet-measure-path-measurement {
+  position: absolute;
+  font-size: 1.5em;
+  color: black;
+  text-shadow: -1px  0 0 white,
+               -1px -1px 0 white,
+                0 -1px 0 white,
+                1px -1px 0 white,
+                1px  0 0 white,
+                1px  1px 0 white,
+                0  1px 0 white,
+               -1px  1px 0 white;
+  white-space: nowrap;
+  transform-origin: 0;
+  pointer-events: none;
+}
+
+.leaflet-measure-path-measurement > div {
+  position: relative;
+  margin-top: 50%;
+  background-color:#fff;
+  left: -40%;
+  padding:.2em;
+  border-radius:.2em;
+}
+
+
+.leaflet-marker-pane img {
+  background-color: $color-2;
+  padding: 0.3em;
+  border-radius: 2em;
+  font-size: 2em;
+  box-shadow: 0.3em 0.3em 0.5em 0em #00000045;
+  border: thin solid $color-3;
+}
