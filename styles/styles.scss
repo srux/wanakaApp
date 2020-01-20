@@ -255,6 +255,17 @@ h1,h2,h3,h4,h5 {
     opacity:0;
     transform-origin: top left;
     border-radius:0em 0em 100em 0em;
+    overflow: scroll !important;
+    .section {
+        height:430vw;
+        background-color:white;
+        .page {
+            display:block;
+            background-image:url("../assets/things-to-do.jpg");
+            background-size:contain;
+            background-repeat: no-repeat;
+        }
+    }
 }
 
 
@@ -263,6 +274,17 @@ h1,h2,h3,h4,h5 {
     opacity:0;
     transform-origin: top left;
     border-radius:0em 0em 100em 0em;
+    overflow: scroll !important;
+    .section {
+        height:400vw;
+        background-color:white;
+        .page {
+            display:block;
+            background-image:url("../assets/accommodation.jpg");
+            background-size:contain;
+            background-repeat: no-repeat;
+        }
+    }
 }
 
 .layer4 {
@@ -270,6 +292,17 @@ h1,h2,h3,h4,h5 {
     opacity:0;
     transform-origin: top left;
     border-radius:0em 0em 100em 0em;
+    overflow: scroll !important;
+    .section {
+        height:150vw;
+        background-color:white;
+        .page {
+            display:block;
+            background-image:url("../assets/about-us.jpg");
+            background-size:contain;
+            background-repeat: no-repeat;
+        }
+    }
 }
 
 

@@ -1114,7 +1114,7 @@ fieldset {
   position: absolute;
   font-size: 1.5em;
   color: black;
-  text-shadow: -1px  0 0 white, -1px -1px 0 white, 0 -1px 0 white, 1px -1px 0 white, 1px  0 0 white, 1px  1px 0 white, 0  1px 0 white, -1px  1px 0 white;
+  text-shadow: -1px  0 0 white, -1px -1px 0 white, 0 -1px 0 white, 1px -1px 0 white, 1px  0 0 white, 1px  1px 0 white, 0  1px 0 white, -1px  1px 0 white;
   white-space: nowrap;
   -webkit-transform-origin: 0;
           transform-origin: 0;
@@ -1486,6 +1486,19 @@ h1, h2, h3, h4, h5 {
   -webkit-transform-origin: top left;
           transform-origin: top left;
   border-radius: 0em 0em 100em 0em;
+  overflow: scroll !important;
+}
+
+.layer2 .section {
+  height: 430vw;
+  background-color: white;
+}
+
+.layer2 .section .page {
+  display: block;
+  background-image: url("../assets/things-to-do.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .layer3 {
@@ -1495,6 +1508,19 @@ h1, h2, h3, h4, h5 {
   -webkit-transform-origin: top left;
           transform-origin: top left;
   border-radius: 0em 0em 100em 0em;
+  overflow: scroll !important;
+}
+
+.layer3 .section {
+  height: 400vw;
+  background-color: white;
+}
+
+.layer3 .section .page {
+  display: block;
+  background-image: url("../assets/accommodation.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .layer4 {
@@ -1504,6 +1530,19 @@ h1, h2, h3, h4, h5 {
   -webkit-transform-origin: top left;
           transform-origin: top left;
   border-radius: 0em 0em 100em 0em;
+  overflow: scroll !important;
+}
+
+.layer4 .section {
+  height: 150vw;
+  background-color: white;
+}
+
+.layer4 .section .page {
+  display: block;
+  background-image: url("../assets/about-us.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .fold {
