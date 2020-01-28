@@ -168,6 +168,32 @@ h1,h2,h3,h4,h5 {
     flex: 1 0 40%;
 }
 
+.leaflet-routing-container.leaflet-bar.leaflet-routing-collapsible.leaflet-control {
+    background-color: white;
+    border-radius: .5em;
+    height: 5em;
+    font-size: 1em;
+    overflow: scroll;
+    width: 82%;
+}
+
+.leaflet-routing-geocoder input {
+    width: 82%;
+}
+.leaflet-routing-alt {
+    table {
+        display:none;
+    }
+}
+
+.leaflet-pane.leaflet-marker-pane img {
+    width: 0.8em !important;
+    height: 1.2em !important;
+    box-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
 .clearBtn {
     width: 100%;
     flex:0 0 8%;
