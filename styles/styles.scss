@@ -727,6 +727,11 @@ h1,h2,h3,h4,h5 {
             margin-top: 0.2em;
         }
     }
+    .formGrp.form3 {
+        flex: 1 0 50%;
+        align-items: center;
+        justify-content: flex-start;
+    }
 
     .form4 {
         display:block;
