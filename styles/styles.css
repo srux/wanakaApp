@@ -523,7 +523,7 @@
 
 .card-js input[disabled], .card-js select[disabled] {
   background-color: #eee;
-  color: #e24301;
+  color: #c24813;
 }
 
 .card-js select option[hidden] {
@@ -817,7 +817,7 @@ fieldset {
 }
 
 .option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__indicator::after {
-  color: #e24301;
+  color: #c24813;
   -webkit-transform: scale(1);
           transform: scale(1);
 }
@@ -831,7 +831,7 @@ fieldset {
 .option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__label::after {
   -webkit-transform: scale(1);
           transform: scale(1);
-  color: #e24301;
+  color: #c24813;
 }
 
 .option-input:nth-child(2):checked ~ .option:nth-of-type(2) {
@@ -850,7 +850,7 @@ fieldset {
 }
 
 .option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__indicator::after {
-  color: #e24301;
+  color: #c24813;
   -webkit-transform: scale(1);
           transform: scale(1);
 }
@@ -864,7 +864,7 @@ fieldset {
 .option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__label::after {
   -webkit-transform: scale(1);
           transform: scale(1);
-  color: #e24301;
+  color: #c24813;
 }
 
 .nextButton {
@@ -883,7 +883,7 @@ fieldset {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #8f3013;
+  background-color: #c24813;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -937,7 +937,7 @@ fieldset {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #8f3013;
+  background-color: #c24813;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -949,7 +949,7 @@ fieldset {
   cursor: pointer;
   border-radius: .1em;
   text-align: center;
-  color: #bdbdbd;
+  color: gainsboro;
 }
 
 .formSubmit {
@@ -959,7 +959,7 @@ fieldset {
 }
 
 .formSubmit .pure-button-primary {
-  background-color: #8f3013;
+  background-color: #c24813;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1007,13 +1007,17 @@ fieldset {
 }
 
 .nextButtonHidden a:before {
-  display: block;
   white-space: pre-line;
   content: 'STEP ONE: TRAVEL DETAILS \A  COMPLETE FORM TO PROCEED';
   color: #2e2e2e;
   opacity: 1;
-  text-align: left;
-  padding: 1em 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
   font-size: .8em;
   font-weight: 700;
   position: absolute;
@@ -1042,8 +1046,13 @@ fieldset {
   content: 'STEP TWO: CHOOSE YOUR PREFERRED\A  MODE OF TRANSPORT TO PROCEED';
   color: #2e2e2e;
   opacity: 1;
-  text-align: left;
-  padding: 1em 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
   font-size: .8em;
   font-weight: 700;
   position: absolute;
@@ -1072,8 +1081,13 @@ fieldset {
   content: 'STEP THREE: CHOOSE YOUR PREFERRED\A  MODEL TO PROCEED';
   color: #2e2e2e;
   opacity: 1;
-  text-align: left;
-  padding: 1em 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
   font-size: .8em;
   font-weight: 700;
   position: absolute;
@@ -1220,7 +1234,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .app .layer main .planYourTrip .mainHeading {
-  background-color: #8f3013;
+  background-color: #c24813;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1356,7 +1370,7 @@ h1, h2, h3, h4, h5 {
   color: gainsboro;
   font-weight: 300;
   line-height: 1.2;
-  font-size: 6vw;
+  font-size: 1.5em;
   padding: 0em .5em;
 }
 
@@ -1371,15 +1385,51 @@ h1, h2, h3, h4, h5 {
 
 .leaflet-routing-container.leaflet-bar.leaflet-routing-collapsible.leaflet-control {
   background-color: white;
-  border-radius: .5em;
-  height: 5em;
+  border-radius: 0;
+  max-height: 11em;
   font-size: 1em;
   overflow: scroll;
-  width: 82%;
+  border: none;
+  padding: 0.7em 1em;
+  margin: .6em 0em;
+}
+
+.leaflet-left {
+  left: 0;
+  /* position: absolute; */
+  height: 100%;
+  margin-top: .6em;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.leaflet-routing-geocoders {
+  display: none;
+}
+
+.leaflet-touch .leaflet-bar {
+  border: 0;
+  background-clip: padding-box;
+  /* width: 10%; */
+  margin: .6em 0em;
+}
+
+.leaflet-touch .leaflet-bar a {
+  width: 35px;
+  height: 27.5px;
+  line-height: 30px;
 }
 
 .leaflet-routing-geocoder input {
   width: 82%;
+}
+
+.leaflet-routing-alt h2 {
+  font-size: 1.1em;
 }
 
 .leaflet-routing-alt table {
@@ -1465,7 +1515,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .progress .activeBar {
-  background-color: #8f3013;
+  background-color: #c24813;
   color: gainsboro;
   font-size: 11px;
   -webkit-box-shadow: inset 0em 0em 3em 0px #0000008c;
@@ -1661,12 +1711,17 @@ h1, h2, h3, h4, h5 {
 
 .moveTo5 .option-input ~ .option {
   display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .moveTo5 .option-input:checked ~ .option {
   display: initial;
   font-size: .9em;
-  height: 13em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .currentStage {
@@ -1858,7 +1913,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .navOpen i {
-  color: #e24301;
+  color: #c24813;
   -webkit-transition: ease all 1.7s;
   transition: ease all 1.7s;
 }
@@ -1920,6 +1975,16 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   font-size: 1.4em;
   color: #2e2e2e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .formGrp .formOption input {
