@@ -1344,8 +1344,8 @@ h1, h2, h3, h4, h5 {
       -ms-flex-direction: row;
           flex-direction: row;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 11%;
-          flex: 0 0 11%;
+      -ms-flex: 0 0 12%;
+          flex: 0 0 12%;
   font-size: 2.5em;
 }
 
