@@ -970,6 +970,7 @@ fieldset {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  min-height: 2.4em;
 }
 
 .formPeeps {
@@ -1703,8 +1704,8 @@ h1, h2, h3, h4, h5 {
 
 .moveTo5 {
   position: absolute;
-  -webkit-transform: translate(0, 200vh);
-          transform: translate(0, 200vh);
+  -webkit-transform: translate(0, 199vh);
+          transform: translate(0, 199vh);
   -webkit-transition: ease all 0s;
   transition: ease all 0s;
 }
@@ -2048,7 +2049,7 @@ h1, h2, h3, h4, h5 {
 .sumStyle {
   padding: 0em 1em;
   background-color: #242424;
-  border-bottom: #8f3013 0.1em solid;
+  font-weight: 400;
 }
 
 .totalStyle {
@@ -2081,7 +2082,6 @@ h1, h2, h3, h4, h5 {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-top: 2em;
 }
 
 .form4 {
@@ -2104,6 +2104,9 @@ h1, h2, h3, h4, h5 {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 10%;
           flex: 1 0 10%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .form5 .cols {

@@ -430,7 +430,7 @@ h1,h2,h3,h4,h5 {
 
 .moveTo5 {
     position: absolute;
-    transform: translate(0, 200vh);
+    transform: translate(0, 199vh);
     transition: ease all 0s;
 }
 
@@ -695,7 +695,8 @@ h1,h2,h3,h4,h5 {
 .sumStyle {
     padding: 0em 1em;
     background-color: $color-6;
-    border-bottom: $color-7 .1em solid;
+    font-weight:400;
+    // border-bottom: $color-7 .1em solid;
 }
 .totalStyle {
     font-size: 2em;
@@ -731,7 +732,7 @@ h1,h2,h3,h4,h5 {
         flex: 1 0 50%;
         align-items: center;
         justify-content: flex-start;
-        margin-top: 2em;
+        // margin-top: 2em;
     }
 
     .form4 {
@@ -747,6 +748,7 @@ h1,h2,h3,h4,h5 {
         display: flex;
         flex-direction: column;
         flex: 1 0 10%;
+        justify-content: flex-start;
         .cols {
             display: flex;
             justify-content: space-between;
