@@ -71,6 +71,12 @@
     transition-timing-function: cubic-bezier(.98,0,.22,.98), linear;
     will-change: transform, opacity;
   }
+  .form2 .option {
+    transition: .4s;
+  }
+  .form4 .option {
+    transition: .5s;
+}
   
   .option__indicator {
     display: block;
@@ -85,7 +91,7 @@
     img {
 
         width: 60%;
-        padding-left: 10%;
+        padding-left: 20%;
         transition:.5s ease all;
     }
 
@@ -118,6 +124,8 @@
       bottom: 0em;
   }
 
+
+
   ul {
     li {
       font-size: .6em;
@@ -144,7 +152,7 @@
         img {
 
             width: 60%;
-            padding-left: 15%;
+            padding-left: 20%;
         }
     }
   }
@@ -205,6 +213,7 @@
     .option__label::after { transform: scale(1); 
         color:$color-1;}
   }
+
 
   .nextButton {
     flex: 0 0 10%;
@@ -426,4 +435,8 @@
   font-size: 2em;
   box-shadow: 0.3em 0.3em 0.5em 0em #00000045;
   border: thin solid $color-3;
+}
+
+span.option__label.pple {
+  font-size: 2em;
 }

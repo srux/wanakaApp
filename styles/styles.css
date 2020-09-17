@@ -676,6 +676,16 @@ fieldset {
   margin-right: 0;
 }
 
+.form2 .option {
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.form4 .option {
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
 .option__indicator {
   display: block;
   -webkit-transform-origin: left bottom;
@@ -690,7 +700,7 @@ fieldset {
 
 .option__indicator img {
   width: 60%;
-  padding-left: 10%;
+  padding-left: 20%;
   -webkit-transition: .5s ease all;
   transition: .5s ease all;
 }
@@ -758,7 +768,7 @@ fieldset {
 
 .option:last-child .option__indicator img {
   width: 60%;
-  padding-left: 15%;
+  padding-left: 20%;
 }
 
 .option-input:checked ~ .option {
@@ -1153,6 +1163,10 @@ fieldset {
   -webkit-box-shadow: 0.3em 0.3em 0.5em 0em #00000045;
           box-shadow: 0.3em 0.3em 0.5em 0em #00000045;
   border: thin solid #bdbdbd;
+}
+
+span.option__label.pple {
+  font-size: 2em;
 }
 
 * {
@@ -2026,7 +2040,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 500;
   display: -webkit-box;
   display: -ms-flexbox;
-  font-size: 1.1em;
+  font-size: .95em;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
